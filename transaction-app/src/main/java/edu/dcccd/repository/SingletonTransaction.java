@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SingletonTransaction {
+public class SingletonTransaction
+{
 
     private static SingletonTransaction instance = null;
 
@@ -21,7 +22,8 @@ public class SingletonTransaction {
         transactions.add(tr01);transactions.add(tr02);
     }
 
-    public static SingletonTransaction getInstance(){
+    public static SingletonTransaction getInstance()
+    {
         if(instance == null){
             instance = new SingletonTransaction();
         }

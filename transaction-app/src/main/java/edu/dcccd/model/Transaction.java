@@ -8,7 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 
 @Data
-public class Transaction {
+public class Transaction
+{
 
     private Long id;
     private String day;
@@ -17,11 +18,13 @@ public class Transaction {
     private BigDecimal amount;
     private String type;
 
-    public Transaction(){
+    public Transaction()
+    {
         this.time = currentTime();
     }
 
-    public Transaction(Long id, String type,String day, BigDecimal amount, String description){
+    public Transaction(Long id, String type,String day, BigDecimal amount, String description)
+    {
         this.time = currentTime();
         this.id=id;
         this.day = day;
@@ -30,7 +33,8 @@ public class Transaction {
         this.type = type;
     }
 
-    private static String currentTime(){
+    private static String currentTime()
+    {
         LocalDateTime now = LocalDateTime.now();
         return now.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM));
     }
