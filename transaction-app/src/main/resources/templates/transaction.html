@@ -37,9 +37,9 @@
                         <label>Day</label>
                     </div>
                     <div class="col-md-6">
-                        <select class="form-control"  th:with="Myday=*{day}" th:field="*{day}">
+                        <select class="form-control"  th:field="*{day}">
                             <option value=""  selected=true
-                            th:text="${day!=null}?'Select a day':${Myday}">Select the day</option>
+                            th:text="*{'Select the day'}">Select the day</option>
                             <option th:each="da:${days}" th:value="${da}" th:text="${da}"></option>
                         </select>
 
@@ -72,7 +72,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
 
         <div class="col-lg-8">
@@ -104,11 +103,10 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
             </div>
         </div>
-
     </div>
-</div>
 </div>
             <div th:replace="fragments/footer :: footer"></div>
     </div>
