@@ -19,11 +19,11 @@ public class Transaction {
     private String type;
 
     public Transaction(){
-        time = currentTime();
+        this.time = currentTime();
     }
 
     public Transaction(Long id, String type,String day, BigDecimal amount, String description){
-        time = currentTime();
+        this.time = currentTime();
         this.id=id;
         this.day = day;
         this.description = description;
