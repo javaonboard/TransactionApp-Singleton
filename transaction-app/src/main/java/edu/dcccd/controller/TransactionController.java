@@ -32,20 +32,16 @@ public class TransactionController {
     }
 
     @GetMapping("/transaction")
-    public String loadTransactionPage(Model model, Transaction tran){
-        List<Transaction> trs = transactionService.getAllTransaction();
-        model.addAttribute("trform", new Transaction());
+    public String loadTransactionPage(Model model){
+        List<Transaction> transactions = transactionService.getAllTransaction();
+        model.addAttribute("transactionForm", new Transaction());
         model.addAttribute("days",getDays());
-        model.addAttribute("transactions", trs);
-        model.addAttribute("next", "/create");
+        model.addAttribute("transactions", transactions);
         return "transaction";
     }
 
     @PostMapping(value="/create")
-    public String createTransaction(@ModelAttribute("trform") Transaction transaction){
-        LocalDateTime now = LocalDateTime.now();
-        String time = now.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM));
-        transaction.setTime(time);
+    public String createTransaction(@ModelAttribute("transactionForm") Transaction transaction){
         transaction.setId(SingletonTransaction.getInstance().autoIncrementID+=1);
         transactionService.createTransaction(transaction);
         return "redirect:transaction";
@@ -53,7 +49,8 @@ public class TransactionController {
 
     public List<String> getDays(){
         List<String> days = new ArrayList<>();
-        Arrays.asList(DayOfWeek.values()).stream().forEach(day->days.add(day.toString()));
+        Arrays.asList(DayOfWeek.values()).stream()
+                .forEach(day->days.add(day.toString()));
         return days;
     }
 }

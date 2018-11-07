@@ -21,7 +21,7 @@
                  </div>
              </div>
 
-            <form action="#" th:action="${next}" th:object="${trform}" method="post" >
+            <form action="#" th:action="@{/create}" th:object="${transactionForm}" method="post" >
                 <div class="row form-group">
                     <div class="col-lg-2"><label>Type</label></div>
                     <div class="col-sm-3 bg-primary">
