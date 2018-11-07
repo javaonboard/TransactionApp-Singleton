@@ -1,6 +1,6 @@
 package edu.dcccd.repository;
 
-import edu.dcccd.entity.Transaction;
+import edu.dcccd.model.Transaction;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

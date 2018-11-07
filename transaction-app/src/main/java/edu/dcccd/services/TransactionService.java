@@ -1,6 +1,6 @@
 package edu.dcccd.services;
 
-import edu.dcccd.entity.Transaction;
+import edu.dcccd.model.Transaction;
 
 import java.util.List;
 

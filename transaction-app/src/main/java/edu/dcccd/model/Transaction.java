@@ -1,6 +1,5 @@
-package edu.dcccd.entity;
+package edu.dcccd.model;
 
-import edu.dcccd.repository.SingletonTransaction;
 import lombok.Data;
 
 import java.math.BigDecimal;
