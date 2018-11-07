@@ -19,17 +19,20 @@ public class Transaction {
     private String type;
 
     public Transaction(){
-        LocalDateTime now = LocalDateTime.now();
-        time = now.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM));
+        time = currentTime();
     }
 
     public Transaction(Long id, String type,String day, BigDecimal amount, String description){
-        LocalDateTime now = LocalDateTime.now();
-        time = now.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM));
+        time = currentTime();
         this.id=id;
         this.day = day;
         this.description = description;
         this.amount = amount;
         this.type = type;
+    }
+
+    private static String currentTime(){
+        LocalDateTime now = LocalDateTime.now();
+        return now.format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM));
     }
 }
