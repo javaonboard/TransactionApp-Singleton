@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Report Page</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</head>
+<body style="background-color: #d5d5d5">
+<div th:replace="fragments/header :: header">
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-lg-4">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h4>Select day(s) to get your transactions list.</h4>
+                </div>
+            </div>
+            <form action="#" th:action="@{/getReport}" th:object="${selected}" method="post">
+
+                <div class="row form-group mp">
+                    <ul>
+                        <div class="row checkbox mp">
+                            <div class="col-md-6">
+                                <li th:each="day : ${days}">
+                                    <input type="checkbox" th:field="*{selectedDays}" th:value="${day}"/>
+                                    <label th:text="${day}">day</label>
+                                </li>
+                            </div>
+                        </div>
+                    </ul>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-success">Search</button>
+                        <a href="/report" type="button" class="btn btn-info">Reset</a>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-7">
+                    <h4>Summary Report</h4>
+                </div>
+            </div>
+            <div class="row-12">
+                <table class="table table-sm table-dark">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Type</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="transaction : ${transactions}">
+                        <td th:text="${transaction.id}"></td>
+                        <td th:text="${transaction.day}"></td>
+                        <td th:text="${transaction.time}"></td>
+                        <td th:text="${transaction.description}"></td>
+                        <td th:text="${transaction.amount}"></td>
+                        <td th:text="${transaction.type}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div th:replace="fragments/footer :: footer"></div>
+</div>
+</div>
+</body>
+
+</html>

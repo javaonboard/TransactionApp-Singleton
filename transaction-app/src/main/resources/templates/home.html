@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}" />
+    <link rel="stylesheet" href="/static/bootstrap.min.css" th:href="@{/bootstrap.min.css}"/>
     <title>Home Page</title>
     <meta charset="utf-8"/>
 </head>
@@ -10,9 +10,10 @@
 </div>
 <div class="container-fluid">
     <div class="hero-unit m-5">
-        <h1>Keep Your Revenues and Expenses Under Control!</h1>
+        <h1>Welcome to the <span th:text="${appName}"></span></h1>
         <p>
-            Welcome to the <span th:text="${appName}"></span>
+            Keep Your Revenues and Expenses Under Control!
+        </p>
         <p>
             <a th:href="@{/transaction}" class="btn btn-large btn-success">Start</a>
         </p>
